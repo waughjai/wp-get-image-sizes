@@ -10,7 +10,7 @@ Simple function for getting media image sizes for WordPress.
 	$image_sizes = WPGetImageSizes();
 	foreach ( $image_sizes as $size )
 	{
-		echo "{$size->getSlug()} : {$size->getWidth()} : {$size->getHeight()}\n";
+	    echo "{$size->getSlug()} : {$size->getWidth()} : {$size->getHeight()}\n";
 	}
 
 On default WordPress installations, will print:
