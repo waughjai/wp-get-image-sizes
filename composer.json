@@ -1,0 +1,22 @@
+{
+    "name": "waughj/wp-get-image-sizes",
+    "description": "Simple function for getting media image sizes for WordPress.",
+    "keywords": [ "image sizes", "media", "wordpress" ],
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Jaimeson Waugh",
+            "email": "waughjai@gmail.com"
+        }
+    ],
+    "type": "library",
+    "require": {
+		"php": ">=7.0"
+    },
+    "require-dev": {
+		"phpunit/phpunit": "6.*"
+    },
+    "autoload": {
+		"files": [ "src/WPGetImageSizes.php", "src/WPImageSize.php" ]
+    }
+}
