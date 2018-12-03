@@ -11,7 +11,7 @@ namespace WaughJ\WPGetImageSizes
 		$default_image_sizes = get_intermediate_image_sizes();
 	    foreach ( $default_image_sizes as $size )
 		{
-			$image_sizes[] = new WPImageSize( $size, intval( get_option( "{$size}_size_w" ) ), intval( get_option( "{$size}_size_h" ) ) );
+			$image_sizes[] = new WPImageSize( ( string )( $size ), intval( get_option( "{$size}_size_w" ) ), intval( get_option( "{$size}_size_h" ) ) );
 	    }
 	    return SortImageSizeList( $image_sizes );
 	}
