@@ -20,6 +20,7 @@ class WPGetImageSizesTest extends TestCase
 	{
 		$image_sizes = WPGetImageSizes();
 		$this->assertEquals( $image_sizes[ 0 ], new WPImageSize( 'thumbnail', 150, 150 ) );
+		$this->assertEquals( $image_sizes[ 1 ], new WPImageSize( 'medium',300, 300 ) );
 
 	}
 }

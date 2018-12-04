@@ -5,13 +5,23 @@ namespace WaughJ\WPGetImageSizes
 {
 	use WaughJ\WPGetImageSizes\WPImageSize;
 
+	const DEFAULT_SIZES = [ 'thumbnail', 'medium', 'medium_large', 'large' ];
+
 	function WPGetImageSizes() : array
 	{
+		global $_wp_additional_image_sizes;
 		$image_sizes = [];
 		$default_image_sizes = get_intermediate_image_sizes();
 	    foreach ( $default_image_sizes as $size )
 		{
-			$image_sizes[] = new WPImageSize( ( string )( $size ), intval( get_option( "{$size}_size_w" ) ), intval( get_option( "{$size}_size_h" ) ) );
+			if ( in_array( $size, DEFAULT_SIZES ) )
+			{
+				$image_sizes[] = new WPImageSize( ( string )( $size ), intval( get_option( "{$size}_size_w" ) ), intval( get_option( "{$size}_size_h" ) ) );
+			}
+			else if ( isset( $_wp_additional_image_sizes[ $size ] ) )
+			{
+				$image_sizes[] = new WPImageSize( ( string )( $size ), $_wp_additional_image_sizes[ $size ][ 'width' ], $_wp_additional_image_sizes[ $size ][ 'height' ] );
+			}
 	    }
 	    return SortImageSizeList( $image_sizes );
 	}
